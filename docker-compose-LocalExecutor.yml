@@ -2,6 +2,7 @@ version: '3.3'
 services:
     postgres:
         image: postgres:9.6
+        container_name: postgres
         environment:
             - POSTGRES_USER=airflow
             - POSTGRES_PASSWORD=airflow
@@ -13,6 +14,7 @@ services:
 
     webserver:
         image: puckel/docker-airflow:1.10.7
+        container_name: airflow-webserver
         restart: always
         depends_on:
             - postgres
